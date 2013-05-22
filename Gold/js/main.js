@@ -1,8 +1,31 @@
 //Gary W. Hunter Looney
-//Project 2
+//Project 3
 //Add Character Java
 //Term 1305
 
+$('#index').on('pageinit', function(){
+	//code needed for home page goes here
+});	
+		
+$('#addItem').on('pageinit', function(){
+
+		var myForm = $('#formId');
+		    myForm.validate({
+			invalidHandler: function(form, validator) {
+			},
+			submitHandler: function() {
+		var data = myForm.serializeArray();
+			storeData(data);
+		}
+	});
+	
+	//any other code needed for addItem page goes here
+	
+});
+
+//The functions below can go inside or outside the pageinit function for the page in which it is needed.
+
+/*
 var cname = document.getElementById("cname");
 var sex = document.getElementById("sex");
 var birthdate = document.getElementById("birthdate");
@@ -177,3 +200,5 @@ var errorMessageTwo = ('error');
 clearButton.addEventListener("click", clearData);
 displayButton.addEventListener("click", getTheData);
 submitButton.addEventListener("click", validate);
+
+*/
