@@ -1,5 +1,5 @@
 //Gary W. Hunter Looney
-//Project 2
+//Project 1
 //Add Character Java
 //Term 1305
 
@@ -148,42 +148,10 @@ function editTheItem () {
 	editTheSubmit.key = this.key;
 	
 }
-function validate (event) {
-	var errorMessage = [];
-	
-	var getTHEcname = cname;	
-	if(getTHEcname.value === ""){
-		var cnameError = "Please enter a character name.";
-		getTHEcname.style.border = "1px solide red";
-		errorMessage = cnameError;
-	}
-	
-	if(errorMessage.length >= 1) {
-		for (var i = 0, j = errorMessage.length; i< j; i++){
-			var errorText = document.createElement('li');
-			errorText.innerHTML = errorMessage[i];
-			errorMessageTwo.appendChild(errorText);
-		}
-		event.preventDefault();
-		return false;	
-	} else {
-		saveData (this.key);
-	}
-}
-
-
-
-
-
-
-var produceDataGender = document.getElementById("produceData");
-
-produceDataGender.addEventListener("click", getTheData);
-
 
 var displayButton = document.getElementById('displayButton');
 var errorMessageTwo = ('error');
 
 clearButton.addEventListener("click", clearData);
 displayButton.addEventListener("click", getTheData);
-submitButton.addEventListener("click", validate);
+submitButton.addEventListener("click", saveData);
