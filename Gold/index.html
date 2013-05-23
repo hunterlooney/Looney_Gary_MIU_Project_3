@@ -33,19 +33,32 @@
 	
 	<div data-role="content">	
 	
-		<center><a href="#addItem" > <img src="images/Elf2.png"> </a> </center>
+		<center><a href="#additem" > <img src="images/Elf2.png"> </a> </center>
 		<!-- Photo credit: Suus Wansink / Foter.com / CC BY   -->
-	
 
-		<input type="search" name="search" id="search-basic" value="" /></p>
-		<p><a href="#addItem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Character</a></p>
-		<ul data-role="listview" data-theme="g" data-inset="true">
-			<li>Browse by Attribute</li>
-			<li><a href="#gender"> <img src="images/Gender3.png"> Gender</a></li>
-			<li><a href="#race"> <img src="images/Race3.png"> Race</a></li>
-			<li><a href="#height"> <img src="images/Height3.png"> Height</a></li>
-			<li><a href="#birthdate"> <img src="images/Birthdate3.png"> Birthdate</a></li>
-			<li><a href="#glasses"> <img src="images/Glasses3.png"> Glasses</a></li>
+		<p><a href="#additem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Character</a></p>
+		<p>Browse by Attribute</p>
+		<ul data-role="listview" data-theme="a" data-inset="true" data-filter="true">
+				<li><a href="#gender">
+					<img src="images/Gender3.png" height="110%">
+					<h1>Gender</h1>
+					<p>Will sort by gender</p></a></li>
+				<li><a href="#race">
+					<img src="images/Race3.png" height="110%">
+					<h1>Race</h1>
+					<p>Will sort by race</p></a></li>
+				<li><a href="#height">
+					<img src="images/Height3.png" height="110%">
+					<h1>Height</h1>
+					<p>Will sort by height</p></a></li>
+				<li><a href="#birthdate">
+					<img src="images/Birthdate3.png" height="110%">
+					<h1>Birthdate</h1>
+					<p>Will sort by birthdate</p></a></li>
+				<li><a href="#glasses">
+					<img src="images/Glasses3.png" height="110%">
+					<h1>Glasses</h1>
+					<p>Will sort by glasses</p></a></li>
 		</ul>
 	</div>
 
@@ -53,8 +66,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
@@ -63,7 +75,7 @@
 </div>
 
 <!-- Add Item (Character) -->
-<div data-role="page" id="addItem" data-add-back-btn="true">
+<div data-role="page" id="additem" data-add-back-btn="true">
 
 	<div data-role="header" data-position="fixed">
 		<h1>Add a Character</h1>
@@ -73,55 +85,65 @@
     	<h2>Character Information</h2>
 	</header>
 
-	<article>
-		<ul>  
+	<form action="" method="post" id="addcharacter">
+		<div data-role="fieldcontain">  
 			<label for="required">* Means it is a Required Field!
 			<label id="error">
-		</ul>
+		</div>
 
-		<ul>
-		<li> 
+		<div data-role="fieldcontain">
 		<!-- Text Input -->
 		<label for="cname">*Name: </label> 
 		<input type="text" name="cname" id="cname" value="" /> 
-		</li> 	
+		</div> 	
 
 		<br>
 		<!-- Checkbox Input -->
-		<li> <label for="glasses">Does your character wear glasses? </li>
+		<div data-role="fieldcontain">
+		<label for="glasses">Does your character wear glasses? </li>
 		<label><input type="checkbox" name="glasses" /> The character wears glasses. </label>
-
+		</div>
 
 		<br>
 		<!--Flip Toggle Switch -->
-		<li> Is your character male or female? </li>
+		<div data-role="fieldcontain">
+		<label> Is your character male or female? </label>
 		<select name="sex" id="sex" data-role="slider">
 		<option value="Female">Female</option>
 		<option value="Male">Male</option>
 		</select> 
+		</div>
 	
 		<br>
 		<!-- Date Input -->
-		<li>Birthdate: <input type="date" id="birthdate"> </li>
+		<div data-role="fieldcontain">
+		Birthdate: <input type="date" id="birthdate">
+		</div>
+
 
 		<br>
-		<li>What is the race of your character? </li>
+		<div data-role="fieldcontain">What is the race of your character? 
 		<form action=""> <select id="race">
 		<option value="Reptilian">Reptilian</option>
 		<option value="Feline">Feline</option>
 		<option value="Elf">Elf</option>
 		</select>
+		</div>
 		</form>
 
 		<br>
-		<li>Height: <input type="range" id="height" value="6.0" min="5.0" max="7.0"></li>
-
+		<div data-role="fieldcontain">Height: <input type="range" id="height" value="6.0" min="5.0" max="7.0">
+		</div>
+		
+		<div data-role="fieldcontain">
+		</div>
+		
 		<br>
 		<br>
-		<input type="button" id="clearButton" value="Clear Stored Data" />
+		<input type="button" id="submitButton" value="Submit" data-theme="a"/>
 		<input type="button" id="displayButton" value="Display Data" />
-		<input type="button" id="submitButton" value="Submit" />
-	</article>
+		<input type="button" id="clearButton" value="Clear Stored Data" />
+	</form>
 
 
 
@@ -129,8 +151,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
@@ -138,30 +159,6 @@
 	</div>
 </div>
 	
-<!-- Search -->
-<div data-role="page" id="search" data-add-back-btn="true">
-	<div data-role="header" data-position="fixed">
-		<h1>Search</h1>
-	</div>
-
-	<div data-role="content">
-		<br>
-		<input type="search" name="search" id="search-basic" value="" /></p>
-	</div>
-
-	<div data-role="footer" data-position="fixed" data-id="index">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
-				<li><a href="#browse" data-icon="grid">Browse</a></li>				
-			</ul>
-		</div>
-		<h4>05-23-13, Gary W. Hunter Looney</h4>
-	</div>
-
-</div>
 
 <!-- Browse -->
 <div data-role="page" id="browse" data-add-back-btn="true">
@@ -186,8 +183,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
@@ -209,8 +205,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
@@ -232,8 +227,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
@@ -255,8 +249,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
@@ -278,8 +271,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
@@ -301,8 +293,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#index" data-icon="home">Home</a></li>
-				<li><a href="#addItem" data-icon="plus">Add</a></li>
-				<li><a href="#search" data-icon="search">Search</a></li>
+				<li><a href="#additem" data-icon="plus">Add</a></li>
 				<li><a href="#browse" data-icon="grid">Browse</a></li>				
 			</ul>
 		</div>
